@@ -1,4 +1,4 @@
-#include <stdio.h>
+#includei <stdio.h>
 /**
  * main - Entry point
  * Description - Prints all possible combinations of two two-digit numbers
@@ -14,7 +14,7 @@ for (i = 0; i < 99; i++)
 	{
 	putchar('0' + i / 10);
 	putchar('0' + i % 10);
-	putchar('');
+	putchar(' ');
 	putchar('0' + j / 10);
 	putchar('0' + j % 10);
 	}
