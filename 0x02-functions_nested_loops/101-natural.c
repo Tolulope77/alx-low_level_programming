@@ -1,3 +1,4 @@
+#include <stdio.h>
 /**
  * main - Sum of all the multiples of 3 and 5 below 1024 (excluded)
  *
