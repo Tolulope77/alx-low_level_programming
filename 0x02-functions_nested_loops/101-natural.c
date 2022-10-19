@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib>
 /**
  * main - Sum of all the multiples of 3 and 5 below 1024 (excluded)
  *
@@ -6,12 +7,13 @@
  */
 int main(void)
 {
-	int i, sum = 0;
+	int i = 0;
+	int sum = 0;
 
-	for (i = 0; i < 1024; i++)
+	while (i < 1024)
 	{
 		if ((i % 3) == 0 || (i % 5) == 0)
-			sum += 1;
+			sum += i;
 	}
 
 	printf("%d\n", sum);
