@@ -1,58 +1,48 @@
 #include "main.h"
+#include <stdlib.h>
 /**
  * str_concat - concatenates two strings.
  * @s1: String 1.
  * @s2: String 2 to be concatenated to s1.
  * Return: NULL on failure or concatenated string on Success.
  */
-int _strlen(char *s)
-{
-	unsigned int i;
-
-	i = 0;
-	while (s[i] != '\0') /*Count character of string*/
-	{
-		i++;
-	}
-	return (i);
-}
-/**
- * str_concat - back a pointer to array
- * @s1: Array one
- * @s2: Array two
- * Return: Always an array dinamic
- */
 char *str_concat(char *s1, char *s2)
 {
-	char *dst;
-	unsigned int i, j, size;
+	char *concatstr;
+	int index = 0, len1 = 0, len2 = 0;
 
-	/*If the array is empty*/
 	if (s1 == NULL)
 		s1 = "";
 
+	while (*s1)
+	{
+		len1++;
+		s1++;
+	}
 	if (s2 == NULL)
 		s2 = "";
 
-	/*count size total*/
-	size = (_strlen(s1) + _strlen(s2) + 1);
-
-	/*malloc*/
-	dst = (char *) malloc(size * sizeof(char));
-
-	if (dst == 0)
+	while (*s2)
 	{
+		len2++;
+		s2++;
+	}
+	concatstr = malloc(sizeof(char) + (len1 + len2 + 1));
+	if (concatstr == NULL)
 		return (NULL);
-	}
-
-	/*Concatenate arrays*/
-	for (i = 0; *(s1 + i) != '\0'; i++)
-		*(dst + i) = *(s1 + i);
-
-	for (j = 0; *(s2 + j) != '\0'; j++)
+	for (; index < (len1 + len2); index++)
 	{
-		*(dst + i) = *(s2 + j);
-		i++;
+		if (index < len1)
+		{
+			concatstr[index] = *s1;
+			s1++;
+		}
+		else
+		{
+			concatstr[index] = *s2;
+			s2++;
+		}
 	}
-	return (dst);
+	concatstr[index] = '\0';
+	return (concatstr);
 }
